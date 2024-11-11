@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonAdd" xml:space="preserve">
+    <value>追加</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Button/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonExecuteCommand" xml:space="preserve">
+    <value>コマンド実行</value>
+    <comment>Button/ExplorerPage</comment>
+  </data>
+  <data name="ButtonHashCalc" xml:space="preserve">
+    <value>ハッシュ計算</value>
+    <comment>Button/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonHashManagement" xml:space="preserve">
+    <value>ハッシュ管理</value>
+    <comment>Button/ExplorerPage</comment>
+  </data>
+  <data name="ButtonHashResult" xml:space="preserve">
+    <value>同一ファイル結果</value>
+    <comment>Button/HashCalcingPage</comment>
+  </data>
+  <data name="ButtonModify" xml:space="preserve">
+    <value>変更</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonNormalSettings" xml:space="preserve">
+    <value>標準設定に戻る</value>
+    <comment>Button/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonRemove" xml:space="preserve">
+    <value>除去</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="ButtonTargetFilter" xml:space="preserve">
+    <value>ハッシュ取得対象</value>
+    <comment>Button/SelectTargetPage</comment>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>終了</value>
+    <comment>Button</comment>
+  </data>
+  <data name="HashAlgorithm_SHA256" xml:space="preserve">
+    <value>SHA-256 (高セキュリティ：信頼性は高く、概ねMD5より高速。標準として推奨)</value>
+    <comment>SettingsPage/Security</comment>
+  </data>
+  <data name="HashAlgorithm_SHA384" xml:space="preserve">
+    <value>SHA-384 (高セキュリティ：SHA-256よりもキュリティ強度が高いが、計算がやや遅い)</value>
+    <comment>SettingsPage/Security</comment>
+  </data>
+  <data name="HashAlgorithm_SHA512" xml:space="preserve">
+    <value>SHA-512 (最大セキュリティ：セキュリティ強度は非常に高いが、計算が遅い)</value>
+    <comment>SettingsPage/Security</comment>
+  </data>
+  <data name="LabelCommand" xml:space="preserve">
+    <value>コマンド</value>
+    <comment>Label/ExplorerPage</comment>
+  </data>
+  <data name="LabelCurrentDirectory" xml:space="preserve">
+    <value>カレントディレクトリ</value>
+    <comment>Label/ExplorerPage</comment>
+  </data>
+  <data name="LabelDirectoryCount" xml:space="preserve">
+    <value>ファイルスキャン状況：ディレクトリ </value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelDirectoryScanning" xml:space="preserve">
+    <value>ディレクトリスキャン中...：発見数</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelExpert" xml:space="preserve">
+    <value>上級者向け</value>
+    <comment>Label/SettingsPage</comment>
+  </data>
+  <data name="LabelExpert_EmptyDirDelete" xml:space="preserve">
+    <value>空のディレクトリを削除するかどうか</value>
+    <comment>Label/SettingsPage/SelectTargetPageExpert</comment>
+  </data>
+  <data name="LabelExpert_HiddenFiles" xml:space="preserve">
+    <value>隠しファイルを対象にする</value>
+    <comment>Label/SelectTargetPageExpert</comment>
+  </data>
+  <data name="LabelExpert_ReadOnlyFiles" xml:space="preserve">
+    <value>読み取り専用ファイルを対象にする</value>
+    <comment>Label/SelectTargetPageExpert</comment>
+  </data>
+  <data name="LabelExpert_ZeroSizeFileDelete" xml:space="preserve">
+    <value>0サイズのファイルを削除するかどうか</value>
+    <comment>Label/SettingsPage/SelectTargetPageExpert</comment>
+  </data>
+  <data name="LabelExtentionFiles_Applications" xml:space="preserve">
+    <value>アプリケーションファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Archives" xml:space="preserve">
+    <value>圧縮ファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Documents" xml:space="preserve">
+    <value>ドキュメントファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Movies" xml:space="preserve">
+    <value>動画ファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_NoHaveExtentions" xml:space="preserve">
+    <value>拡張子なし</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_OtherFiles" xml:space="preserve">
+    <value>その他のファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Pictures" xml:space="preserve">
+    <value>画像ファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Registrations" xml:space="preserve">
+    <value>登録ファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_Sounds" xml:space="preserve">
+    <value>サウンドファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtentionFiles_SourceCodes" xml:space="preserve">
+    <value>ソースコードファイル</value>
+    <comment>Label/ExtentionHelper</comment>
+  </data>
+  <data name="LabelExtention_FilterSetting" xml:space="preserve">
+    <value>拡張子によるファイル種別の指定</value>
+    <comment>Label/SelectTargetPage</comment>
+  </data>
+  <data name="LabelExtention_GroupFilterSetting" xml:space="preserve">
+    <value>ファイル種類によるファイルの指定</value>
+    <comment>Label/SelectTargetPage</comment>
+  </data>
+  <data name="LabelFileCalcing" xml:space="preserve">
+    <value>ファイルハッシュの計算中です</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelFileMatching" xml:space="preserve">
+    <value>同一ファイルの検索中です</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelFinished" xml:space="preserve">
+    <value>完了</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelFontSizeString" xml:space="preserve">
+    <value>フォントのサイズ</value>
+    <comment>Label/SettingsPage</comment>
+  </data>
+  <data name="LabelFontString" xml:space="preserve">
+    <value>フォント</value>
+    <comment>Label/SettingsPage</comment>
+  </data>
+  <data name="LabelHashCalcing_AllHashNeedToGetFilesCount" xml:space="preserve">
+    <value>ハッシュを取得する必要があるファイル数 :</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelHashCalcing_AllTargetFilesCount" xml:space="preserve">
+    <value>対象総ファイル数：</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelHashCalcing_HashGotFileCount" xml:space="preserve">
+    <value>ハッシュを取得したファイル数 :</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelHashCalcing_HashGotPercent" xml:space="preserve">
+    <value>ハッシュ取得状況 :</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelHashCalcing_MatchHashCount" xml:space="preserve">
+    <value>同一ファイル数 :</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelHashCalcing_ProcessingFileName" xml:space="preserve">
+    <value>処理中のファイル名：</value>
+    <comment>Label/HashCalcingPage</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasComment" xml:space="preserve">
+    <value>正規表現の交替構文にはコメントが含まれます。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasMalformedCondition" xml:space="preserve">
+    <value>正規表現内の交互配列に不正な条件があります。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasMalformedReference" xml:space="preserve">
+    <value>正規表現内の交替構文に不正な参照が含まれています。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasNamedCapture" xml:space="preserve">
+    <value>正規表現における交替構文は、名前付きキャプチャを使用します。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasTooManyConditions" xml:space="preserve">
+    <value>正規表現の交替は条件が多すぎます。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_AlternationHasUndefinedReference" xml:space="preserve">
+    <value>正規表現の交替構文に未定義の参照が含まれています。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_CaptureGroupNameInvalid" xml:space="preserve">
+    <value>正規表現でキャプチャしたグループ名が無効です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_CaptureGroupOfZero" xml:space="preserve">
+    <value>正規表現は、ゼロという番号の付いた部分式を定義します。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_ExclusionGroupNotLast" xml:space="preserve">
+    <value>除外グループを持つ正規表現の文字クラスは、文字クラスの最後の部分ではありません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_InsufficientClosingParentheses" xml:space="preserve">
+    <value>正規表現の左括弧がエスケープされていないか、右括弧が閉じられていません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_InsufficientOpeningParentheses" xml:space="preserve">
+    <value>正規表現にエスケープされていない右括弧があるか、左括弧がありません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_InsufficientOrInvalidHexDigits" xml:space="preserve">
+    <value>正規表現内の16進数エスケープシーケンスの桁数が足りないか、無効な桁が含まれています。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_InvalidGroupingConstruct" xml:space="preserve">
+    <value>正規表現内のグループ化構文が無効または不正です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_InvalidUnicodePropertyEscape" xml:space="preserve">
+    <value>正規表現内の Unicode プロパティ・エスケープが無効または不明です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_MalformedNamedReference" xml:space="preserve">
+    <value>正規表現内の名前付き参照が不正です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_MalformedUnicodePropertyEscape" xml:space="preserve">
+    <value>Unicode プロパティのエスケープが不正です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_MissingControlCharacter" xml:space="preserve">
+    <value>正規表現の制御文字がありません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_NestedQuantifiersNotParenthesized" xml:space="preserve">
+    <value>正規表現内で別の量化子の上に繰り返される量化子は、括弧でグループ化されていません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_QuantifierAfterNothing" xml:space="preserve">
+    <value>正規表現中の量化子は、正規表現の先頭やグループの中など、何かを量化できない位置にあります。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_QuantifierOrCaptureGroupOutOfRange" xml:space="preserve">
+    <value>正規表現内の捕捉グループまたは量化子が範囲内にない、つまりInt32.MaxValueより大きいです。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_ReversedCharacterRange" xml:space="preserve">
+    <value>正規表現の文字クラスは、a-zの代わりにz-aのように、逆の文字範囲を含む。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_ReversedQuantifierRange" xml:space="preserve">
+    <value>正規表現における量化子の範囲が、{1,10}の代わりに{10,1}のように逆数である。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_ShorthandClassInCharacterRange" xml:space="preserve">
+    <value>正規表現の文字クラスは、文字クラスの内部では許可されないショートハンド・クラスを含んでいます。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UndefinedNamedReference" xml:space="preserve">
+    <value>正規表現で使用される名前付き参照が定義されていません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UndefinedNumberedReference" xml:space="preserve">
+    <value>正規表現で使用される番号参照が定義されていません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnescapedEndingBackslash" xml:space="preserve">
+    <value>正規表現の最後は、エスケープされていないバックスラッシュで終わっています。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_Unknown" xml:space="preserve">
+    <value>不明な正規表現の解析エラーです。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnrecognizedControlCharacter" xml:space="preserve">
+    <value>正規表現内の制御文字が認識されません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnrecognizedEscape" xml:space="preserve">
+    <value>正規表現内のエスケープ文字またはシーケンスが無効です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnrecognizedUnicodeProperty" xml:space="preserve">
+    <value>正規表現の unicode プロパティが認識されないか、無効です。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnterminatedBracket" xml:space="preserve">
+    <value>正規表現の左角括弧がエスケープされていないか、右角括弧が閉じられていません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegexError_UnterminatedComment" xml:space="preserve">
+    <value>正規表現中のコメントは終了しません。</value>
+    <comment>Label/SetRegexUserControl</comment>
+  </data>
+  <data name="LabelRegex_Criteria" xml:space="preserve">
+    <value>正規表現での検索条件</value>
+    <comment>Label/SelectTargetPageRegEx</comment>
+  </data>
+  <data name="LabelRegex_Error" xml:space="preserve">
+    <value>正規表現のエラー</value>
+    <comment>Label/SelectTargetPageRegEx</comment>
+  </data>
+  <data name="LabelSettings" xml:space="preserve">
+    <value>見つかったファイルの内部ファイル書き込み等の処理中</value>
+    <comment>Label/SettingsPage/SelectTargetPage</comment>
+  </data>
+  <data name="LabelShowTargetInfo_CountAllFilesGetHash" xml:space="preserve">
+    <value>ハッシュを取得する全ファイル数 :</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelShowTargetInfo_CountAlreadyGetHash" xml:space="preserve">
+    <value>ハッシュを既に取得しているファイル数 :</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelShowTargetInfo_CountFilteredGetHash" xml:space="preserve">
+    <value>フィルタ済みのハッシュ取得が必要なファイル数 :</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelShowTargetInfo_HashAlgorithm" xml:space="preserve">
+    <value>ファイルハッシュ計算のアルゴリズム</value>
+    <comment>Label/ShowTargetInfoUserControl</comment>
+  </data>
+  <data name="LabelWildcardError_AlreadyRegistered" xml:space="preserve">
+    <value>既に登録されているワイルドカード条件です。</value>
+    <comment>Label/SetWildcardUserControl</comment>
+  </data>
+  <data name="LabelWildcardError_Empty" xml:space="preserve">
+    <value>ワイルドカード検索条件が入力されていません</value>
+    <comment>Label/SetWildcardUserControl</comment>
+  </data>
+  <data name="LabelWildcardError_NotAllowedCharacter" xml:space="preserve">
+    <value>ファイル名に許可されてない文字です</value>
+    <comment>Label/SetWildcardUserControl</comment>
+  </data>
+  <data name="LabelWildcardError_TooManyAsterisk" xml:space="preserve">
+    <value>'*'の利用が多すぎます</value>
+    <comment>Label/SelectTargetPageWildcard</comment>
+  </data>
+  <data name="LabelWildcard_Criteria" xml:space="preserve">
+    <value>ワイルドカードでの検索条件</value>
+    <comment>Label/SetWildcardUserControl</comment>
+  </data>
+  <data name="LabelWildcard_Error" xml:space="preserve">
+    <value>ワイルドカードのエラー</value>
+    <comment>Label/SetWildcardUserControl</comment>
+  </data>
+  <data name="ListViewDataModified" xml:space="preserve">
+    <value>更新日時</value>
+    <comment>ExplorerPage/ListViewHeader</comment>
+  </data>
+  <data name="ListViewName" xml:space="preserve">
+    <value>名前</value>
+    <comment>ExplorerPage/ListViewHeader</comment>
+  </data>
+  <data name="ListViewSize" xml:space="preserve">
+    <value>サイズ</value>
+    <comment>ExplorerPage/ListViewHeader</comment>
+  </data>
+  <data name="ListViewType" xml:space="preserve">
+    <value>種類</value>
+    <comment>ExplorerPage/ListViewHeader</comment>
+  </data>
+  <data name="MenuDebug" xml:space="preserve">
+    <value>デバッグ(_D)</value>
+    <comment>MenuItem</comment>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>ヘルプ(_H)</value>
+    <comment>MenuItem</comment>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>設定(_S)</value>
+    <comment>MenuItem</comment>
+  </data>
+  <data name="NoHaveExtentions" xml:space="preserve">
+    <value>拡張子なし</value>
+    <comment>Label/SelectTargetPageExtention</comment>
+  </data>
+  <data name="TabContentExpert" xml:space="preserve">
+    <value>(注意)上級者向け設定(_E)</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="TabContentRegularExpression" xml:space="preserve">
+    <value>正規表現設定(_R)</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="TabContentStarndard" xml:space="preserve">
+    <value>標準設定(_N)</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="TabContentWildCard" xml:space="preserve">
+    <value>ワイルドカード設定(_W)</value>
+    <comment>TabContent/SelectTargetPage</comment>
+  </data>
+  <data name="TitleTargetFilterWindow" xml:space="preserve">
+    <value>フィルタ結果</value>
+    <comment>TargetFilterWindow</comment>
+  </data>
+  <data name="ButtonDelete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="ButtonDupDelete" xml:space="preserve">
+    <value>重複ファイル削除</value>
+  </data>
+</root>
