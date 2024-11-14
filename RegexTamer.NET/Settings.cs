@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 namespace RegexTamer.NET
 {
+    #region Interface
     public interface ISettings
     {
         /// <summary>
@@ -36,6 +37,7 @@ namespace RegexTamer.NET
         /// </summary>
         void SaveSettings();
     }
+    #endregion Interface
 
     public class Settings : ISettings
     {
@@ -132,7 +134,6 @@ namespace RegexTamer.NET
         #endregion Property
 
         #region settings.xml load and save
-
         /// <summary>
         /// Load settings from settings.xml
         /// </summary>

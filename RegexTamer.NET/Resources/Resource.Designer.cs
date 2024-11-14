@@ -88,15 +88,6 @@ namespace RegexTamer.NET.Resources {
         }
         
         /// <summary>
-        ///   Search に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Button_Search {
-            get {
-                return ResourceManager.GetString("Button_Search", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Regular Expression error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Label_RegexError {
@@ -201,6 +192,15 @@ namespace RegexTamer.NET.Resources {
         internal static string LabelRegexError_CaptureGroupOfZero {
             get {
                 return ResourceManager.GetString("LabelRegexError_CaptureGroupOfZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Regular Expression search criteria not entered に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string LabelRegexError_Empty {
+            get {
+                return ResourceManager.GetString("LabelRegexError_Empty", resourceCulture);
             }
         }
         

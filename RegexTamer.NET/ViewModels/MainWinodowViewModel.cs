@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace RegexTamer.NET.ViewModels
 {
@@ -77,15 +78,15 @@ namespace RegexTamer.NET.ViewModels
         RegexErrorStatus RegexErrorStatus { get; set; }
 
         /// <summary>
-        /// Search Button Event
+        /// Search string or Replace string modified
         /// </summary>
-        RelayCommand ButtonSearchCommand {get;set;}
+        void SearchAndReplaceModified();
     }
     #endregion Interface
 
     public partial class MainWinodowViewModel : ObservableObject, IMainWinodowViewModel
     {
-        #region WindowBinding
+        #region Window Binding
         /// <summary>
         /// Window Top position
         /// </summary>
@@ -155,10 +156,9 @@ namespace RegexTamer.NET.ViewModels
                 _Settings.CultureName = value;
             }
         }
-        #endregion WindowBinding
+        #endregion Window Binding
 
-        #region Binding
-
+        #region Label Data Binding
         /// <summary>
         /// Menu - File String
         /// </summary>
@@ -278,7 +278,9 @@ namespace RegexTamer.NET.ViewModels
         {
             get => ResourceService.GetString("Button_ExecuteReplace");
         }
+        #endregion Label Data Binding
 
+        #region Data Binding
         /// <summary>
         /// Regular Expression String
         /// </summary>
@@ -289,17 +291,23 @@ namespace RegexTamer.NET.ViewModels
             set
             {
                 SetProperty(ref _SearchText, value);
-                ButtonSearchCommand.NotifyCanExecuteChanged();
-                ButtonReplaceTestOrCancelCommand.NotifyCanExecuteChanged();
-                ButtonExecuteReplaceCommand.NotifyCanExecuteChanged();
+                SearchAndReplaceModified();
             }
         }
 
         /// <summary>
         /// Regular Expression Replace String
         /// </summary>
-        [ObservableProperty]
         private string _ReplaceText = string.Empty;
+        public string ReplaceText
+        {
+            get => _ReplaceText;
+            set
+            {
+                SetProperty(ref _ReplaceText, value);
+                SearchAndReplaceModified();
+            }
+        }
 
         /// <summary>
         /// Regex Error Background Color
@@ -464,7 +472,7 @@ namespace RegexTamer.NET.ViewModels
         }
 
         private readonly bool _IsTestRunning = false;
-        #endregion Binding
+        #endregion Data Binding
 
         #region Event Define
         /// <summary>
@@ -478,11 +486,6 @@ namespace RegexTamer.NET.ViewModels
         public RelayCommand ToJapanese { get; set; }
 
         /// <summary>
-        /// Search Button Event
-        /// </summary>
-        public RelayCommand ButtonSearchCommand { get; set; }
-
-        /// <summary>
         /// Replace Test Button Event or Cancel Replace Test Button Event
         /// </summary>
         public RelayCommand ButtonReplaceTestOrCancelCommand { get; set; }
@@ -494,10 +497,14 @@ namespace RegexTamer.NET.ViewModels
         #endregion Event Define
 
         private readonly ISettings _Settings;
-        public MainWinodowViewModel(ISettings settings)
+        private readonly IMessenger _Messenger;
+        public MainWinodowViewModel(
+            ISettings settings,
+            IMessenger messenger)
         {
             _Settings = settings;
             _Settings.LoadSettings();
+            _Messenger = messenger;
 
             WindowTop = _Settings.WindowTop;
             WindowLeft = _Settings.WindowLeft;
@@ -507,23 +514,31 @@ namespace RegexTamer.NET.ViewModels
 
             ToEnglish = new RelayCommand(() => ChangeCultureInfo("en"));
             ToJapanese = new RelayCommand(() => ChangeCultureInfo("ja"));
-            ButtonSearchCommand = new RelayCommand(
-                () => MessageBox.Show("Regex OK"),
-                () => IsRegexConditionCorrent(SearchText)
-            );
             ButtonReplaceTestOrCancelCommand = new RelayCommand(
                 () => MessageBox.Show("Replace Test OK"),
                 () => !string.IsNullOrEmpty(ReplaceText) && IsRegexConditionCorrent(SearchText)
             );
             ButtonExecuteReplaceCommand = new RelayCommand(
                 () => MessageBox.Show("Replace OK"),
-                () => !string.IsNullOrEmpty(ReplaceText) && IsRegexConditionCorrent(SearchText)
+                () => !string.IsNullOrEmpty(ReplaceText) && _IsTestRunning && IsRegexConditionCorrent(SearchText)
             );
 
             ChangeCultureInfo(CultureName);
             IsRegexConditionCorrent(SearchText);
         }
 
+        /// <summary>
+        /// Search string or Replace string modified
+        /// </summary>
+        public void SearchAndReplaceModified()
+        {
+            var searchText = IsRegexConditionCorrent(SearchText) ? SearchText : string.Empty;
+            _Messenger.Send(new SearchTextMessage(searchText));
+            ButtonReplaceTestOrCancelCommand.NotifyCanExecuteChanged();
+            ButtonExecuteReplaceCommand.NotifyCanExecuteChanged();
+        }
+
+        #region Culture Changed
         /// <summary>
         /// Change the language culture and send a change notice to the properties
         /// </summary>
@@ -544,6 +559,7 @@ namespace RegexTamer.NET.ViewModels
             OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
             OnPropertyChanged(nameof(ButtonExecuteReplace));
         }
+        #endregion Culture Changed
 
         #region Regex Check
         public bool IsRegexConditionCorrent(string pattern)

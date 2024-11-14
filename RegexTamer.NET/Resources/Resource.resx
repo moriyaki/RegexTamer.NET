@@ -270,9 +270,6 @@
   <data name="Label_TargetData" xml:space="preserve">
     <value>Target Data</value>
   </data>
-  <data name="Button_Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
   <data name="Button_ReplaceTest" xml:space="preserve">
     <value>Replace Test</value>
   </data>

@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegexTamer.NET"
-        xmlns:rs="clr-namespace:RegexTamer.NET"
         mc:Ignorable="d"
         Title="RegexTamer.NET" 
         Width="{Binding WindowWidth,Mode=TwoWay}" Height="{Binding WindowHeight,Mode=TwoWay}" 
@@ -43,15 +42,12 @@
 
         <!-- "Regular Expression" -->
         <Label Grid.Row="1" Grid.Column="0" Content="{Binding LabelRegularExpression}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="3" 
-                 KeyDown="TextBoxSearch_KeyDown"
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" 
                  Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"/>
-        <!-- "Search" -->
-        <Button Grid.Row="1" Grid.Column="3" Margin="3" Content="{Binding ButtonSearch}" Command="{Binding ButtonSearchCommand}"/>
 
         <!-- "Replase" -->
         <Label Grid.Row="2" Grid.Column="0" Content="{Binding LabelReplace}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding ReplaceText}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding ReplaceText,UpdateSourceTrigger=PropertyChanged}"/>
         <!-- "Replace Test" or "Cancel Replace Test" -->
         <Button Grid.Row="2" Grid.Column="2" Margin="3" Content="{Binding ButtonReplaceTestOrCancel}" Command="{Binding ButtonReplaceTestOrCancelCommand}"/>
         <!-- "Replace" -->
@@ -64,7 +60,7 @@
 
         <!-- "Target Data" -->
         <Label Grid.Row="4" Grid.Column="0" Content="{Binding LabelTargetData}"/>
-        <RichTextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="3"/>
-
+        <RichTextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" 
+                     x:Name="SearchOrReplaceRichBox"/>
     </Grid>
 </Window>
