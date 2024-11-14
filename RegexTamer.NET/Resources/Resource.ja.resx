@@ -117,189 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ButtonAdd" xml:space="preserve">
-    <value>追加</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonCancel" xml:space="preserve">
-    <value>キャンセル</value>
-    <comment>Button/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonExecuteCommand" xml:space="preserve">
-    <value>コマンド実行</value>
-    <comment>Button/ExplorerPage</comment>
-  </data>
-  <data name="ButtonHashCalc" xml:space="preserve">
-    <value>ハッシュ計算</value>
-    <comment>Button/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonHashManagement" xml:space="preserve">
-    <value>ハッシュ管理</value>
-    <comment>Button/ExplorerPage</comment>
-  </data>
-  <data name="ButtonHashResult" xml:space="preserve">
-    <value>同一ファイル結果</value>
-    <comment>Button/HashCalcingPage</comment>
-  </data>
-  <data name="ButtonModify" xml:space="preserve">
-    <value>変更</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonNormalSettings" xml:space="preserve">
-    <value>標準設定に戻る</value>
-    <comment>Button/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonRemove" xml:space="preserve">
-    <value>除去</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="ButtonTargetFilter" xml:space="preserve">
-    <value>ハッシュ取得対象</value>
-    <comment>Button/SelectTargetPage</comment>
-  </data>
-  <data name="Exit" xml:space="preserve">
-    <value>終了</value>
-    <comment>Button</comment>
-  </data>
-  <data name="HashAlgorithm_SHA256" xml:space="preserve">
-    <value>SHA-256 (高セキュリティ：信頼性は高く、概ねMD5より高速。標準として推奨)</value>
-    <comment>SettingsPage/Security</comment>
-  </data>
-  <data name="HashAlgorithm_SHA384" xml:space="preserve">
-    <value>SHA-384 (高セキュリティ：SHA-256よりもキュリティ強度が高いが、計算がやや遅い)</value>
-    <comment>SettingsPage/Security</comment>
-  </data>
-  <data name="HashAlgorithm_SHA512" xml:space="preserve">
-    <value>SHA-512 (最大セキュリティ：セキュリティ強度は非常に高いが、計算が遅い)</value>
-    <comment>SettingsPage/Security</comment>
-  </data>
-  <data name="LabelCommand" xml:space="preserve">
-    <value>コマンド</value>
-    <comment>Label/ExplorerPage</comment>
-  </data>
-  <data name="LabelCurrentDirectory" xml:space="preserve">
-    <value>カレントディレクトリ</value>
-    <comment>Label/ExplorerPage</comment>
-  </data>
-  <data name="LabelDirectoryCount" xml:space="preserve">
-    <value>ファイルスキャン状況：ディレクトリ </value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
-  </data>
-  <data name="LabelDirectoryScanning" xml:space="preserve">
-    <value>ディレクトリスキャン中...：発見数</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
-  </data>
-  <data name="LabelExpert" xml:space="preserve">
-    <value>上級者向け</value>
-    <comment>Label/SettingsPage</comment>
-  </data>
-  <data name="LabelExpert_EmptyDirDelete" xml:space="preserve">
-    <value>空のディレクトリを削除するかどうか</value>
-    <comment>Label/SettingsPage/SelectTargetPageExpert</comment>
-  </data>
-  <data name="LabelExpert_HiddenFiles" xml:space="preserve">
-    <value>隠しファイルを対象にする</value>
-    <comment>Label/SelectTargetPageExpert</comment>
-  </data>
-  <data name="LabelExpert_ReadOnlyFiles" xml:space="preserve">
-    <value>読み取り専用ファイルを対象にする</value>
-    <comment>Label/SelectTargetPageExpert</comment>
-  </data>
-  <data name="LabelExpert_ZeroSizeFileDelete" xml:space="preserve">
-    <value>0サイズのファイルを削除するかどうか</value>
-    <comment>Label/SettingsPage/SelectTargetPageExpert</comment>
-  </data>
-  <data name="LabelExtentionFiles_Applications" xml:space="preserve">
-    <value>アプリケーションファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Archives" xml:space="preserve">
-    <value>圧縮ファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Documents" xml:space="preserve">
-    <value>ドキュメントファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Movies" xml:space="preserve">
-    <value>動画ファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_NoHaveExtentions" xml:space="preserve">
-    <value>拡張子なし</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_OtherFiles" xml:space="preserve">
-    <value>その他のファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Pictures" xml:space="preserve">
-    <value>画像ファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Registrations" xml:space="preserve">
-    <value>登録ファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_Sounds" xml:space="preserve">
-    <value>サウンドファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtentionFiles_SourceCodes" xml:space="preserve">
-    <value>ソースコードファイル</value>
-    <comment>Label/ExtentionHelper</comment>
-  </data>
-  <data name="LabelExtention_FilterSetting" xml:space="preserve">
-    <value>拡張子によるファイル種別の指定</value>
-    <comment>Label/SelectTargetPage</comment>
-  </data>
-  <data name="LabelExtention_GroupFilterSetting" xml:space="preserve">
-    <value>ファイル種類によるファイルの指定</value>
-    <comment>Label/SelectTargetPage</comment>
-  </data>
-  <data name="LabelFileCalcing" xml:space="preserve">
-    <value>ファイルハッシュの計算中です</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelFileMatching" xml:space="preserve">
-    <value>同一ファイルの検索中です</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelFinished" xml:space="preserve">
-    <value>完了</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
-  </data>
-  <data name="LabelFontSizeString" xml:space="preserve">
-    <value>フォントのサイズ</value>
-    <comment>Label/SettingsPage</comment>
-  </data>
-  <data name="LabelFontString" xml:space="preserve">
-    <value>フォント</value>
-    <comment>Label/SettingsPage</comment>
-  </data>
-  <data name="LabelHashCalcing_AllHashNeedToGetFilesCount" xml:space="preserve">
-    <value>ハッシュを取得する必要があるファイル数 :</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelHashCalcing_AllTargetFilesCount" xml:space="preserve">
-    <value>対象総ファイル数：</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelHashCalcing_HashGotFileCount" xml:space="preserve">
-    <value>ハッシュを取得したファイル数 :</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelHashCalcing_HashGotPercent" xml:space="preserve">
-    <value>ハッシュ取得状況 :</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelHashCalcing_MatchHashCount" xml:space="preserve">
-    <value>同一ファイル数 :</value>
-    <comment>Label/HashCalcingPage</comment>
-  </data>
-  <data name="LabelHashCalcing_ProcessingFileName" xml:space="preserve">
-    <value>処理中のファイル名：</value>
-    <comment>Label/HashCalcingPage</comment>
+  <data name="Label_RegexError" xml:space="preserve">
+    <value>正規表現のエラー</value>
+    <comment>Label/SelectTargetPageRegEx</comment>
   </data>
   <data name="LabelRegexError_AlternationHasComment" xml:space="preserve">
     <value>正規表現の交替構文にはコメントが含まれます。</value>
@@ -429,114 +249,40 @@
     <value>正規表現中のコメントは終了しません。</value>
     <comment>Label/SetRegexUserControl</comment>
   </data>
-  <data name="LabelRegex_Criteria" xml:space="preserve">
-    <value>正規表現での検索条件</value>
-    <comment>Label/SelectTargetPageRegEx</comment>
+  <data name="MenuFile" xml:space="preserve">
+    <value>ファイル(_F)</value>
   </data>
-  <data name="LabelRegex_Error" xml:space="preserve">
-    <value>正規表現のエラー</value>
-    <comment>Label/SelectTargetPageRegEx</comment>
+  <data name="MenuOpenFile" xml:space="preserve">
+    <value>ファイルを開く(_O)</value>
   </data>
-  <data name="LabelSettings" xml:space="preserve">
-    <value>見つかったファイルの内部ファイル書き込み等の処理中</value>
-    <comment>Label/SettingsPage/SelectTargetPage</comment>
+  <data name="MenuWriteFile" xml:space="preserve">
+    <value>ファイルに書き込む(_W)</value>
   </data>
-  <data name="LabelShowTargetInfo_CountAllFilesGetHash" xml:space="preserve">
-    <value>ハッシュを取得する全ファイル数 :</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
+  <data name="MenuExit" xml:space="preserve">
+    <value>終了(_X)</value>
   </data>
-  <data name="LabelShowTargetInfo_CountAlreadyGetHash" xml:space="preserve">
-    <value>ハッシュを既に取得しているファイル数 :</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
+  <data name="Label_RegularExpression" xml:space="preserve">
+    <value>正規表現</value>
   </data>
-  <data name="LabelShowTargetInfo_CountFilteredGetHash" xml:space="preserve">
-    <value>フィルタ済みのハッシュ取得が必要なファイル数 :</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
+  <data name="Label_Replace" xml:space="preserve">
+    <value>置換</value>
   </data>
-  <data name="LabelShowTargetInfo_HashAlgorithm" xml:space="preserve">
-    <value>ファイルハッシュ計算のアルゴリズム</value>
-    <comment>Label/ShowTargetInfoUserControl</comment>
+  <data name="Label_TargetData" xml:space="preserve">
+    <value>対象データ</value>
   </data>
-  <data name="LabelWildcardError_AlreadyRegistered" xml:space="preserve">
-    <value>既に登録されているワイルドカード条件です。</value>
-    <comment>Label/SetWildcardUserControl</comment>
+  <data name="Button_Search" xml:space="preserve">
+    <value>検索</value>
   </data>
-  <data name="LabelWildcardError_Empty" xml:space="preserve">
-    <value>ワイルドカード検索条件が入力されていません</value>
-    <comment>Label/SetWildcardUserControl</comment>
+  <data name="Button_ReplaceTest" xml:space="preserve">
+    <value>置換テスト</value>
   </data>
-  <data name="LabelWildcardError_NotAllowedCharacter" xml:space="preserve">
-    <value>ファイル名に許可されてない文字です</value>
-    <comment>Label/SetWildcardUserControl</comment>
+  <data name="Button_ExecuteReplace" xml:space="preserve">
+    <value>置換実行</value>
   </data>
-  <data name="LabelWildcardError_TooManyAsterisk" xml:space="preserve">
-    <value>'*'の利用が多すぎます</value>
-    <comment>Label/SelectTargetPageWildcard</comment>
+  <data name="Button_CancelReplaceTest" xml:space="preserve">
+    <value>置換テストキャンセル</value>
   </data>
-  <data name="LabelWildcard_Criteria" xml:space="preserve">
-    <value>ワイルドカードでの検索条件</value>
-    <comment>Label/SetWildcardUserControl</comment>
-  </data>
-  <data name="LabelWildcard_Error" xml:space="preserve">
-    <value>ワイルドカードのエラー</value>
-    <comment>Label/SetWildcardUserControl</comment>
-  </data>
-  <data name="ListViewDataModified" xml:space="preserve">
-    <value>更新日時</value>
-    <comment>ExplorerPage/ListViewHeader</comment>
-  </data>
-  <data name="ListViewName" xml:space="preserve">
-    <value>名前</value>
-    <comment>ExplorerPage/ListViewHeader</comment>
-  </data>
-  <data name="ListViewSize" xml:space="preserve">
-    <value>サイズ</value>
-    <comment>ExplorerPage/ListViewHeader</comment>
-  </data>
-  <data name="ListViewType" xml:space="preserve">
-    <value>種類</value>
-    <comment>ExplorerPage/ListViewHeader</comment>
-  </data>
-  <data name="MenuDebug" xml:space="preserve">
-    <value>デバッグ(_D)</value>
-    <comment>MenuItem</comment>
-  </data>
-  <data name="MenuHelp" xml:space="preserve">
-    <value>ヘルプ(_H)</value>
-    <comment>MenuItem</comment>
-  </data>
-  <data name="MenuSettings" xml:space="preserve">
-    <value>設定(_S)</value>
-    <comment>MenuItem</comment>
-  </data>
-  <data name="NoHaveExtentions" xml:space="preserve">
-    <value>拡張子なし</value>
-    <comment>Label/SelectTargetPageExtention</comment>
-  </data>
-  <data name="TabContentExpert" xml:space="preserve">
-    <value>(注意)上級者向け設定(_E)</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="TabContentRegularExpression" xml:space="preserve">
-    <value>正規表現設定(_R)</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="TabContentStarndard" xml:space="preserve">
-    <value>標準設定(_N)</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="TabContentWildCard" xml:space="preserve">
-    <value>ワイルドカード設定(_W)</value>
-    <comment>TabContent/SelectTargetPage</comment>
-  </data>
-  <data name="TitleTargetFilterWindow" xml:space="preserve">
-    <value>フィルタ結果</value>
-    <comment>TargetFilterWindow</comment>
-  </data>
-  <data name="ButtonDelete" xml:space="preserve">
-    <value>削除</value>
-  </data>
-  <data name="ButtonDupDelete" xml:space="preserve">
-    <value>重複ファイル削除</value>
+  <data name="LabelRegexError_Empty" xml:space="preserve">
+    <value>正規表現検索条件が入力されていません</value>
   </data>
 </root>

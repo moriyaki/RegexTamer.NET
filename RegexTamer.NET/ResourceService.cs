@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using RegexTamer.NET.Properties;
+using System.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RegexTamer.NET
@@ -8,17 +8,27 @@ namespace RegexTamer.NET
 
     public class ResourceService : ObservableObject
     {
-        public static ResourceService Current { get; } = new();
-        public Resources Resources { get; } = new();
+        private readonly static ResourceManager resourceManager = new("RegexTamer.NET.Resources.Resource", typeof(ResourceService).Assembly);
 
         /// <summary>
-        /// 言語カルチャを変更する
+        /// Change Language Culture
         /// </summary>
-        /// <param name="name">変更するカルチャ(例："ja-JP")</param>
-        public void ChangeCulture(string name)
+        /// <param name="cultureName">ex: "ja"</param>
+        public static void ChangeCulture(string cultureName)
         {
-            Resources.Culture = CultureInfo.GetCultureInfo(name);
-            OnPropertyChanged(nameof(Resources));
+            var culture = new CultureInfo(cultureName);
+            CultureInfo.CurrentUICulture = culture;
+        }
+
+        /// <summary>
+        /// Get Culture String
+        /// </summary>
+        /// <param name="key">Culture Key</param>
+        /// <returns></returns>
+        public static string GetString(string key)
+        {
+            var str = resourceManager.GetString(key, CultureInfo.CurrentUICulture) ?? string.Empty;
+            return str;
         }
     }
 

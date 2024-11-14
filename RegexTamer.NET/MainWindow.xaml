@@ -6,8 +6,65 @@
         xmlns:local="clr-namespace:RegexTamer.NET"
         xmlns:rs="clr-namespace:RegexTamer.NET"
         mc:Ignorable="d"
-        Title="RegexTamer.NET" Height="450" Width="800">
+        Title="RegexTamer.NET" 
+        Width="{Binding WindowWidth,Mode=TwoWay}" Height="{Binding WindowHeight,Mode=TwoWay}" 
+        Left="{Binding WindowLeft,Mode=TwoWay}" Top="{Binding WindowTop,Mode=TwoWay}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- For MouseWheel Border Color To Transparent -->
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="4" Background="Transparent" />
+
+        <!-- Menu -->
+        <Menu x:Name="FolderMenu" DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+            <MenuItem Header="{Binding MenuFile}">
+                <MenuItem Header="{Binding MenuOpenFile}"/>
+                <MenuItem Header="{Binding MenuWriteFile}"/>
+                <Separator />
+                <MenuItem Header="{Binding MenuExit}"/>
+            </MenuItem>
+            <MenuItem Header="Language">
+                <MenuItem Header="English" Command="{Binding ToEnglish}"/>
+                <MenuItem Header="Japanese" Command="{Binding ToJapanese}"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- "Regular Expression" -->
+        <Label Grid.Row="1" Grid.Column="0" Content="{Binding LabelRegularExpression}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="3" 
+                 KeyDown="TextBoxSearch_KeyDown"
+                 Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"/>
+        <!-- "Search" -->
+        <Button Grid.Row="1" Grid.Column="3" Margin="3" Content="{Binding ButtonSearch}" Command="{Binding ButtonSearchCommand}"/>
+
+        <!-- "Replase" -->
+        <Label Grid.Row="2" Grid.Column="0" Content="{Binding LabelReplace}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding ReplaceText}"/>
+        <!-- "Replace Test" or "Cancel Replace Test" -->
+        <Button Grid.Row="2" Grid.Column="2" Margin="3" Content="{Binding ButtonReplaceTestOrCancel}" Command="{Binding ButtonReplaceTestOrCancelCommand}"/>
+        <!-- "Replace" -->
+        <Button Grid.Row="2" Grid.Column="3" Margin="3" Content="{Binding ButtonExecuteReplace}" Command="{Binding ButtonExecuteReplaceCommand}"/>
+
+        <!-- "Regular Expression Error" -->
+        <Label Grid.Row="3" Grid.Column="0" Content="{Binding LabelRegexError}"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" VerticalAlignment="Center"
+                   Background="{Binding RegexErrorBackground}" Text="{Binding RegexErrorOutput}"/>
+
+        <!-- "Target Data" -->
+        <Label Grid.Row="4" Grid.Column="0" Content="{Binding LabelTargetData}"/>
+        <RichTextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="3"/>
 
     </Grid>
 </Window>
