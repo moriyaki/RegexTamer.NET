@@ -283,4 +283,19 @@
     <value>Regular Expression search criteria not entered</value>
     <comment>Label/SetRegexUserControl</comment>
   </data>
+  <data name="Label_FontString" xml:space="preserve">
+    <value>Font Type</value>
+  </data>
+  <data name="Label_FontSize" xml:space="preserve">
+    <value>Font Size</value>
+  </data>
+  <data name="MenuFont" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Label_FontSample" xml:space="preserve">
+    <value>Font Sample</value>
+  </data>
+  <data name="Label_FontAccept" xml:space="preserve">
+    <value>Font change accept</value>
+  </data>
 </root>

@@ -73,6 +73,16 @@ namespace RegexTamer.NET.ViewModels
         double WindowHeight { get; set; }
 
         /// <summary>
+        /// Current Font Family
+        /// </summary>
+        public FontFamily CurrentFontFamily { get; set; }
+
+        /// <summary>
+        /// Current Font Size
+        /// </summary>
+        public double FontSize { get; set; }
+
+        /// <summary>
         /// Regular Expression Error Status
         /// </summary>
         RegexErrorStatus RegexErrorStatus { get; set; }
@@ -81,6 +91,11 @@ namespace RegexTamer.NET.ViewModels
         /// Search string or Replace string modified
         /// </summary>
         void SearchAndReplaceModified();
+
+        /// <summary>
+        /// Replace Test Button Event or Cancel Replace Test Button Event
+        /// </summary>
+        RelayCommand ButtonReplaceTestOrCancelCommand { get; set; }
     }
     #endregion Interface
 
@@ -156,6 +171,38 @@ namespace RegexTamer.NET.ViewModels
                 _Settings.CultureName = value;
             }
         }
+
+        /// <summary>
+        /// Current Font Family
+        /// </summary>
+        private FontFamily _CurrentFontFamily = SystemFonts.MessageFontFamily;
+        public FontFamily CurrentFontFamily
+        {
+            get => _CurrentFontFamily;
+            set
+            {
+                if (_CurrentFontFamily.Source == value.Source) { return; }
+                SetProperty(ref _CurrentFontFamily, value);
+                _Settings.CurrentFont = value;
+            }
+        }
+
+        /// <summary>
+        /// Current Font Size
+        /// </summary>
+        private double _FontSize = SystemFonts.MessageFontSize;
+
+        public double FontSize
+        {
+            get => _FontSize;
+            set
+            {
+                if (_FontSize == value) { return; }
+                SetProperty(ref _FontSize, value);
+                _Settings.FontSize = value;
+            }
+        }
+
         #endregion Window Binding
 
         #region Label Data Binding
@@ -197,6 +244,16 @@ namespace RegexTamer.NET.ViewModels
         public string MenuExit
         {
             get => ResourceService.GetString("MenuExit");
+        }
+
+        /// <summary>
+        /// Menu - File - Exit String
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
+        public string MenuFont
+        {
+            get => ResourceService.GetString("MenuFont");
         }
 
         /// <summary>
@@ -471,7 +528,7 @@ namespace RegexTamer.NET.ViewModels
             }
         }
 
-        private readonly bool _IsTestRunning = false;
+        private bool _IsTestRunning = false;
         #endregion Data Binding
 
         #region Event Define
@@ -484,6 +541,26 @@ namespace RegexTamer.NET.ViewModels
         /// Language change to Jaspanese
         /// </summary>
         public RelayCommand ToJapanese { get; set; }
+
+        /// <summary>
+        /// Read from file
+        /// </summary>
+        public RelayCommand OpenFile { get; set; }
+
+        /// <summary>
+        /// Write to file
+        /// </summary>
+        public RelayCommand WriteFile { get; set; }
+
+        /// <summary>
+        /// Exit Application
+        /// </summary>
+        public RelayCommand CloseApplication { get; set; }
+
+        /// <summary>
+        /// Font Setting
+        /// </summary>
+        public RelayCommand FontSelect { get; set; }
 
         /// <summary>
         /// Replace Test Button Event or Cancel Replace Test Button Event
@@ -514,14 +591,39 @@ namespace RegexTamer.NET.ViewModels
 
             ToEnglish = new RelayCommand(() => ChangeCultureInfo("en"));
             ToJapanese = new RelayCommand(() => ChangeCultureInfo("ja"));
+            OpenFile = new RelayCommand(() => _Messenger.Send<LoadFileMessage>(new LoadFileMessage()));
+            WriteFile = new RelayCommand(() => _Messenger.Send<SaveFileMessage>(new SaveFileMessage()));
+            CloseApplication = new RelayCommand(() => Application.Current.Shutdown());
+            FontSelect = new RelayCommand(() =>
+            {
+                var fontSelectWindow = new FontSelect();
+                fontSelectWindow.ShowDialog();
+            });
             ButtonReplaceTestOrCancelCommand = new RelayCommand(
-                () => MessageBox.Show("Replace Test OK"),
+                () =>
+                {
+                    _Messenger.Send<ReplaceTestMessage>(new ReplaceTestMessage(_IsTestRunning, SearchText, ReplaceText));
+                    _IsTestRunning = !_IsTestRunning;
+                    OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
+                    ButtonExecuteReplaceCommand?.NotifyCanExecuteChanged();
+                },
                 () => !string.IsNullOrEmpty(ReplaceText) && IsRegexConditionCorrent(SearchText)
             );
             ButtonExecuteReplaceCommand = new RelayCommand(
-                () => MessageBox.Show("Replace OK"),
+                () =>
+                {
+                    _Messenger.Send<FixReplaceMessage>(new FixReplaceMessage(SearchText, ReplaceText));
+                    _IsTestRunning = !_IsTestRunning;
+                    OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
+                },
                 () => !string.IsNullOrEmpty(ReplaceText) && _IsTestRunning && IsRegexConditionCorrent(SearchText)
             );
+
+            _Messenger.Register<FontFamilyChangeMessage>(this, (_, m) => CurrentFontFamily = m.Font);
+            _Messenger.Register<FontSizeChangeMessage>(this, (_, m) => FontSize = m.FontSize);
+
+            CurrentFontFamily = _Settings.CurrentFont;
+            FontSize = _Settings.FontSize;
 
             ChangeCultureInfo(CultureName);
             IsRegexConditionCorrent(SearchText);
@@ -558,6 +660,7 @@ namespace RegexTamer.NET.ViewModels
             OnPropertyChanged(nameof(ButtonSearch));
             OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
             OnPropertyChanged(nameof(ButtonExecuteReplace));
+            IsRegexConditionCorrent(SearchText);
         }
         #endregion Culture Changed
 

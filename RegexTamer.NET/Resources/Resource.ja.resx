@@ -282,4 +282,19 @@
   <data name="LabelRegexError_Empty" xml:space="preserve">
     <value>正規表現検索条件が入力されていません</value>
   </data>
+  <data name="Label_FontString" xml:space="preserve">
+    <value>フォント</value>
+  </data>
+  <data name="Label_FontSize" xml:space="preserve">
+    <value>フォントサイズ</value>
+  </data>
+  <data name="MenuFont" xml:space="preserve">
+    <value>フォント</value>
+  </data>
+  <data name="Label_FontSample" xml:space="preserve">
+    <value>フォントサンプル</value>
+  </data>
+  <data name="Label_FontAccept" xml:space="preserve">
+    <value>フォントの変更決定</value>
+  </data>
 </root>

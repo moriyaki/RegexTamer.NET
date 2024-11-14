@@ -88,6 +88,42 @@ namespace RegexTamer.NET.Resources {
         }
         
         /// <summary>
+        ///   Font change accept に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_FontAccept {
+            get {
+                return ResourceManager.GetString("Label_FontAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Font Sample に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_FontSample {
+            get {
+                return ResourceManager.GetString("Label_FontSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Font Size に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_FontSize {
+            get {
+                return ResourceManager.GetString("Label_FontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Font Type に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_FontString {
+            get {
+                return ResourceManager.GetString("Label_FontString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Regular Expression error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Label_RegexError {
@@ -435,6 +471,15 @@ namespace RegexTamer.NET.Resources {
         internal static string MenuFile {
             get {
                 return ResourceManager.GetString("MenuFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Font に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MenuFont {
+            get {
+                return ResourceManager.GetString("MenuFont", resourceCulture);
             }
         }
         

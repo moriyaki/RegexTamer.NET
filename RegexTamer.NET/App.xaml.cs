@@ -88,11 +88,10 @@ namespace RegexTamer.NET
             var services = new ServiceCollection();
 
             services.AddSingleton<IMessenger, WeakReferenceMessenger>();
+            services.AddSingleton<ISettings, Settings>();
             // ViewModel
             services.AddSingleton<IMainWinodowViewModel, MainWinodowViewModel>();
-
-            // Others
-            services.AddSingleton<ISettings, Settings>();
+            services.AddSingleton<IFontSelectViewModel, FontSelectViewModel>();
 
             return services.BuildServiceProvider();
         }

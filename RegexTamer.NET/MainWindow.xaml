@@ -8,7 +8,7 @@
         Title="RegexTamer.NET" 
         Width="{Binding WindowWidth,Mode=TwoWay}" Height="{Binding WindowHeight,Mode=TwoWay}" 
         Left="{Binding WindowLeft,Mode=TwoWay}" Top="{Binding WindowTop,Mode=TwoWay}">
-    <Grid>
+    <Grid PreviewMouseWheel="OnMouseWheel">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -29,11 +29,12 @@
         <!-- Menu -->
         <Menu x:Name="FolderMenu" DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
             <MenuItem Header="{Binding MenuFile}">
-                <MenuItem Header="{Binding MenuOpenFile}"/>
-                <MenuItem Header="{Binding MenuWriteFile}"/>
+                <MenuItem Header="{Binding MenuOpenFile}" Command="{Binding OpenFile}"/>
+                <MenuItem Header="{Binding MenuWriteFile}" Command="{Binding WriteFile}"/>
                 <Separator />
-                <MenuItem Header="{Binding MenuExit}"/>
+                <MenuItem Header="{Binding MenuExit}" Command="{Binding CloseApplication}"/>
             </MenuItem>
+            <MenuItem Header="{Binding MenuFont}" Command="{Binding FontSelect}"/>
             <MenuItem Header="Language">
                 <MenuItem Header="English" Command="{Binding ToEnglish}"/>
                 <MenuItem Header="Japanese" Command="{Binding ToJapanese}"/>
@@ -41,26 +42,38 @@
         </Menu>
 
         <!-- "Regular Expression" -->
-        <Label Grid.Row="1" Grid.Column="0" Content="{Binding LabelRegularExpression}"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="{Binding LabelRegularExpression}"
+               FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" 
-                 Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}"
+                 FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
 
         <!-- "Replase" -->
-        <Label Grid.Row="2" Grid.Column="0" Content="{Binding LabelReplace}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Text="{Binding ReplaceText,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="{Binding LabelReplace}"
+               FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="3" 
+                 Text="{Binding ReplaceText,UpdateSourceTrigger=PropertyChanged}"
+                 KeyDown="TextBoxReplace_KeyDown"
+                 FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <!-- "Replace Test" or "Cancel Replace Test" -->
-        <Button Grid.Row="2" Grid.Column="2" Margin="3" Content="{Binding ButtonReplaceTestOrCancel}" Command="{Binding ButtonReplaceTestOrCancelCommand}"/>
+        <Button Grid.Row="2" Grid.Column="2" Margin="3" Content="{Binding ButtonReplaceTestOrCancel}" Command="{Binding ButtonReplaceTestOrCancelCommand}"
+                FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <!-- "Replace" -->
-        <Button Grid.Row="2" Grid.Column="3" Margin="3" Content="{Binding ButtonExecuteReplace}" Command="{Binding ButtonExecuteReplaceCommand}"/>
+        <Button Grid.Row="2" Grid.Column="3" Margin="3" Content="{Binding ButtonExecuteReplace}" Command="{Binding ButtonExecuteReplaceCommand}"
+                FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
 
         <!-- "Regular Expression Error" -->
-        <Label Grid.Row="3" Grid.Column="0" Content="{Binding LabelRegexError}"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="{Binding LabelRegexError}"
+               FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" VerticalAlignment="Center"
-                   Background="{Binding RegexErrorBackground}" Text="{Binding RegexErrorOutput}"/>
+                   Background="{Binding RegexErrorBackground}" Text="{Binding RegexErrorOutput}"
+                   FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
 
         <!-- "Target Data" -->
-        <Label Grid.Row="4" Grid.Column="0" Content="{Binding LabelTargetData}"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="{Binding LabelTargetData}"
+               FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <RichTextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="3" 
-                     x:Name="SearchOrReplaceRichBox"/>
+                     x:Name="SearchOrReplaceRichBox">
+        </RichTextBox>
     </Grid>
 </Window>

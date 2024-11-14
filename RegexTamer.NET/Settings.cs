@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace RegexTamer.NET
 {
@@ -28,6 +30,29 @@ namespace RegexTamer.NET
         /// Culture Name for Language
         /// </summary>
         string CultureName { get; set; }
+
+        /// <summary>
+        /// Font Family
+        /// </summary>
+        FontFamily CurrentFont { get; set; }
+
+        /// <summary>
+        /// Font Size
+        /// </summary>
+        public double FontSize { get; set; }
+        /// <summary>
+        /// Get font size.
+        /// </summary>
+        public IEnumerable<double> GetSelectableFontSize();
+        /// <summary>
+        /// Font Size to large
+        /// </summary>
+        void FontSizeLarge();
+
+        /// <summary>
+        /// Font Size to small
+        /// </summary>
+        void FontSizeSmall();
         /// <summary>
         /// LOad from Settings XML
         /// </summary>
@@ -39,13 +64,45 @@ namespace RegexTamer.NET
     }
     #endregion Interface
 
+    public class FontSize
+    {
+        public double Size { get; }
+
+        public string SizeString
+        {
+            get
+            {
+                if (Size == Math.Floor(Size))
+                {
+                    return Math.Floor(Size).ToString() + " px";
+                }
+                else
+                {
+                    return Size.ToString() + "px";
+                }
+            }
+        }
+
+        public FontSize()
+        { throw new NotImplementedException(nameof(FontSize)); }
+
+        public FontSize(double size)
+        {
+            Size = size;
+        }
+    }
+
     public class Settings : ISettings
     {
         private readonly string appName = "RegexTamer.NET";
         private readonly string settingXMLFile = "settings.xml";
         private readonly string settingsFilePath;
-        public Settings()
+
+        private readonly IMessenger _Messenger;
+        public Settings(IMessenger messenger)
         {
+            _Messenger = messenger;
+
             var localAppDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), appName);
             settingsFilePath = Path.Combine(localAppDataPath, settingXMLFile);
 
@@ -131,6 +188,78 @@ namespace RegexTamer.NET
                 SaveSettings();
             }
         }
+
+        /// <summary>
+        /// Font Family
+        /// </summary>
+        private FontFamily _CurrentFont = SystemFonts.MessageFontFamily;
+
+        public FontFamily CurrentFont
+        {
+            get => _CurrentFont;
+            set
+            {
+                if (value.Source == _CurrentFont.Source) { return; }
+                _CurrentFont = value;
+                _Messenger.Send<FontFamilyChangeMessage>(new FontFamilyChangeMessage(value));
+                SaveSettings();
+            }
+        }
+
+        /// <summary>
+        /// Font Size
+        /// </summary>
+        private double _FontSize = SystemFonts.MessageFontSize;
+
+        public double FontSize
+        {
+            get => _FontSize;
+            set
+            {
+                if (_FontSize == value) return;
+                _FontSize = value;
+                _Messenger.Send<FontSizeChangeMessage>(new FontSizeChangeMessage(value));
+                SaveSettings();
+            }
+        }
+
+        /// <summary>
+        /// Font size that can be specified
+        /// </summary>
+        private readonly List<double> FontSizes =
+            [12d, 13d, 14d, 15d, 16d, 18d, 20d, 21d, 22d, 24d];
+
+        /// <summary>
+        /// Get font size.
+        /// </summary>
+        /// <returns>Collection of Font Size</returns>
+        public IEnumerable<double> GetSelectableFontSize()
+        {
+            foreach (var fontSize in FontSizes) { yield return fontSize; }
+        }
+
+        /// <summary>
+        /// Font Size to large
+        /// </summary>
+        public void FontSizeLarge()
+        {
+            var index = FontSizes.IndexOf(FontSize);
+            if (index == FontSizes.Count - 1) return;
+
+            FontSize = FontSizes[index + 1];
+        }
+
+        /// <summary>
+        /// Font Size to small
+        /// </summary>
+        public void FontSizeSmall()
+        {
+            var index = FontSizes.IndexOf(FontSize);
+            if (index == 0) return;
+
+            FontSize = FontSizes[index - 1];
+        }
+
         #endregion Property
 
         #region settings.xml load and save
@@ -154,6 +283,10 @@ namespace RegexTamer.NET
                         WindowWidth = Convert.ToDouble(root.Element("WindowWidth")?.Value);
                         WindowHeight = Convert.ToDouble(root.Element("WindowHeight")?.Value);
                         CultureName = root.Element("CultureName")?.Value ?? "en";
+
+                        var fontFamilyName = root.Element("CurrentFont")?.Value ?? string.Empty;
+                        CurrentFont = new FontFamilyConverter().ConvertFromString(fontFamilyName) as FontFamily ?? SystemFonts.MessageFontFamily;
+                        FontSize = Convert.ToDouble(root.Element("FontSize")?.Value);
                     }
                 }
                 // if setings.xml not exist, use default
@@ -179,7 +312,10 @@ namespace RegexTamer.NET
                         new XElement("WindowLeft", WindowLeft),
                         new XElement("WindowWidth", WindowWidth),
                         new XElement("WindowHeight", WindowHeight),
-                        new XElement("CultureName", CultureName)
+                        new XElement("CultureName", CultureName),
+                        new XElement("CurrentFont", CurrentFont),
+                        new XElement("FontSize", FontSize)
+
                     )
                 );
 
