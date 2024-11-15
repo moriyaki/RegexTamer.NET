@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Width="{Binding WindowWidth,Mode=TwoWay}" Height="{Binding WindowHeight,Mode=TwoWay}" 
         Left="{Binding WindowLeft,Mode=TwoWay}" Top="{Binding WindowTop,Mode=TwoWay}"
-        Title="FontSelect">
+        Title="{Binding LabelFontSelectWindowTitle}">
     <Grid PreviewMouseWheel="OnMouseWheel">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -48,8 +48,6 @@
         <!-- Sample -->
         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding LabelFontSample}"
                FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
-        
-
         
         <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Content="{Binding LabelFontAccept}" Command="{Binding FontAccept}"

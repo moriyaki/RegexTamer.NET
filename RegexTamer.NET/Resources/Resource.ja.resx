@@ -255,8 +255,8 @@
   <data name="MenuOpenFile" xml:space="preserve">
     <value>ファイルを開く(_O)</value>
   </data>
-  <data name="MenuWriteFile" xml:space="preserve">
-    <value>ファイルに書き込む(_W)</value>
+  <data name="MenuSaveFile" xml:space="preserve">
+    <value>ファイルに保存(_S)</value>
   </data>
   <data name="MenuExit" xml:space="preserve">
     <value>終了(_X)</value>
@@ -273,10 +273,10 @@
   <data name="Button_ReplaceTest" xml:space="preserve">
     <value>置換テスト</value>
   </data>
-  <data name="Button_ExecuteReplace" xml:space="preserve">
-    <value>置換実行</value>
+  <data name="Button_Replace" xml:space="preserve">
+    <value>置換</value>
   </data>
-  <data name="Button_CancelReplaceTest" xml:space="preserve">
+  <data name="Button_ReplaceTestCancel" xml:space="preserve">
     <value>置換テストキャンセル</value>
   </data>
   <data name="LabelRegexError_Empty" xml:space="preserve">
@@ -296,5 +296,11 @@
   </data>
   <data name="Label_FontAccept" xml:space="preserve">
     <value>フォントの変更決定</value>
+  </data>
+  <data name="Label_FontSelectWindow" xml:space="preserve">
+    <value>フォントとフォントサイズの変更</value>
+  </data>
+  <data name="Label_WindowTitle" xml:space="preserve">
+    <value>RegexTamer.NET - </value>
   </data>
 </root>

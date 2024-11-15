@@ -8,7 +8,7 @@ REM Specify the build configuration (Debug or Release)
 set "Configuration=Release"
 
 REM Specifying the output directory
-set "OutputDirectory=.\RegexTamer.NET\bin\Release\net8.0-windows"
+set "OutputDirectory=.\RegexTamer.NET\bin\Release\net9.0-windows7.0"
 
 REM Name of the ZIP output file
 set "OutputZip=..\RegexTamer.NET.zip"

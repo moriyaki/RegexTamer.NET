@@ -13,7 +13,7 @@ namespace RegexTamer.NET
     public partial class App : Application
     {
         /// <summary>
-        /// 古い DPI Aware
+        /// Old DPI Aware
         /// </summary>
         /// <returns></returns>
         [LibraryImport("user32.dll")]
@@ -21,7 +21,7 @@ namespace RegexTamer.NET
         private static partial bool SetProcessDPIAware();
 
         /// <summary>
-        /// 新しいDPI Aware
+        /// New DPI Aware
         /// </summary>
         /// <param name="awareness"></param>
         /// <returns></returns>
@@ -30,7 +30,7 @@ namespace RegexTamer.NET
         private static partial bool SetProcessDpiAwareness(ProcessDpiAwareness awareness);
 
         /// <summary>
-        /// 新しい DPI Aware で使う引数
+        /// Arguments used in the new DPI Aware
         /// </summary>
         private enum ProcessDpiAwareness
         {
@@ -40,7 +40,7 @@ namespace RegexTamer.NET
         }
 
         /// <summary>
-        /// サービスの登録
+        /// Register for Services
         /// </summary>
         public App()
         {
@@ -49,20 +49,17 @@ namespace RegexTamer.NET
         }
 
         /// <summary>
-        /// 機動処理
+        /// Startup process
         /// </summary>
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            // アプリケーションをDPI Awareに設定
             if (Environment.OSVersion.Version.Major >= 6 && Environment.OSVersion.Version.Minor >= 3)
             {
-                // 新しい SetProcessDpiAwareness
                 SetProcessDpiAwareness(ProcessDpiAwareness.ProcessPerMonitorDpiAware);
             }
             else
             {
-                // Windows 8.1以前の場合は、SetProcessDpiAwareを使用する（非推奨）
                 SetProcessDPIAware();
             }
 
@@ -70,17 +67,17 @@ namespace RegexTamer.NET
         }
 
         /// <summary>
-        /// 現在の App インスタンスを使うために取得する
+        /// Get to use current App instance
         /// </summary>
         public new static App Current => (App)Application.Current;
 
         /// <summary>
-        /// サービスプロバイダ
+        /// Service Provider
         /// </summary>
         public IServiceProvider Services { get; }
 
         /// <summary>
-        /// サービスをここで登録する
+        /// Service Registeration
         /// </summary>
         /// <returns></returns>
         private static ServiceProvider ConfigureServices()
@@ -89,7 +86,7 @@ namespace RegexTamer.NET
 
             services.AddSingleton<IMessenger, WeakReferenceMessenger>();
             services.AddSingleton<ISettings, Settings>();
-            // ViewModel
+
             services.AddSingleton<IMainWinodowViewModel, MainWinodowViewModel>();
             services.AddSingleton<IFontSelectViewModel, FontSelectViewModel>();
 

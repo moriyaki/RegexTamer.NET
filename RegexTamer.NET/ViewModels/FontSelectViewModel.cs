@@ -114,6 +114,12 @@ namespace RegexTamer.NET.ViewModels
         }
 
         #endregion Window Binding
+        /// <summary>
+        /// Window Title
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
+        public string LabelFontSelectWindowTitle { get => $"{ResourceService.GetString("Label_WindowTitle")}{ResourceService.GetString("Label_FontSelectWindow")}"; }
 
         /// <summary>
         /// Label - Font string

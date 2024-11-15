@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -207,6 +208,13 @@ namespace RegexTamer.NET.ViewModels
 
         #region Label Data Binding
         /// <summary>
+        /// Window Title
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
+        public string LabelWindowTitle { get => $"{ResourceService.GetString("Label_WindowTitle")} Version {Assembly.GetExecutingAssembly().GetName().Version}"; }
+
+        /// <summary>
         /// Menu - File String
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
@@ -227,13 +235,13 @@ namespace RegexTamer.NET.ViewModels
         }
 
         /// <summary>
-        /// Menu - File - Write File String
+        /// Menu - File - Save File String
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
-        public string MenuWriteFile
+        public string MenuSaveFile
         {
-            get => ResourceService.GetString("MenuWriteFile");
+            get => ResourceService.GetString("MenuSaveFile");
         }
 
         /// <summary>
@@ -247,7 +255,7 @@ namespace RegexTamer.NET.ViewModels
         }
 
         /// <summary>
-        /// Menu - File - Exit String
+        /// Menu - Font Settings
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
@@ -317,7 +325,7 @@ namespace RegexTamer.NET.ViewModels
             {
                 if (_IsTestRunning)
                 {
-                    return ResourceService.GetString("Button_CancelReplaceTest");
+                    return ResourceService.GetString("Button_ReplaceTestCancel");
                 }
                 else
                 {
@@ -327,13 +335,13 @@ namespace RegexTamer.NET.ViewModels
         }
 
         /// <summary>
-        /// Button "Execute Replace"
+        /// Button "Replace"
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
-        public string ButtonExecuteReplace
+        public string ButtonReplace
         {
-            get => ResourceService.GetString("Button_ExecuteReplace");
+            get => ResourceService.GetString("Button_Replace");
         }
         #endregion Label Data Binding
 
@@ -550,7 +558,7 @@ namespace RegexTamer.NET.ViewModels
         /// <summary>
         /// Write to file
         /// </summary>
-        public RelayCommand WriteFile { get; set; }
+        public RelayCommand SaveFile { get; set; }
 
         /// <summary>
         /// Exit Application
@@ -570,7 +578,7 @@ namespace RegexTamer.NET.ViewModels
         /// <summary>
         /// Execute Replace Button Event
         /// </summary>
-        public RelayCommand ButtonExecuteReplaceCommand { get; set; }
+        public RelayCommand ButtonReplaceCommand { get; set; }
         #endregion Event Define
 
         private readonly ISettings _Settings;
@@ -592,7 +600,7 @@ namespace RegexTamer.NET.ViewModels
             ToEnglish = new RelayCommand(() => ChangeCultureInfo("en"));
             ToJapanese = new RelayCommand(() => ChangeCultureInfo("ja"));
             OpenFile = new RelayCommand(() => _Messenger.Send<LoadFileMessage>(new LoadFileMessage()));
-            WriteFile = new RelayCommand(() => _Messenger.Send<SaveFileMessage>(new SaveFileMessage()));
+            SaveFile = new RelayCommand(() => _Messenger.Send<SaveFileMessage>(new SaveFileMessage()));
             CloseApplication = new RelayCommand(() => Application.Current.Shutdown());
             FontSelect = new RelayCommand(() =>
             {
@@ -605,16 +613,18 @@ namespace RegexTamer.NET.ViewModels
                     _Messenger.Send<ReplaceTestMessage>(new ReplaceTestMessage(_IsTestRunning, SearchText, ReplaceText));
                     _IsTestRunning = !_IsTestRunning;
                     OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
-                    ButtonExecuteReplaceCommand?.NotifyCanExecuteChanged();
+                    ButtonReplaceCommand?.NotifyCanExecuteChanged();
                 },
                 () => !string.IsNullOrEmpty(ReplaceText) && IsRegexConditionCorrent(SearchText)
             );
-            ButtonExecuteReplaceCommand = new RelayCommand(
+            ButtonReplaceCommand = new RelayCommand(
                 () =>
                 {
                     _Messenger.Send<FixReplaceMessage>(new FixReplaceMessage(SearchText, ReplaceText));
                     _IsTestRunning = !_IsTestRunning;
                     OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
+                    ButtonReplaceTestOrCancelCommand?.NotifyCanExecuteChanged();
+                    ButtonReplaceCommand?.NotifyCanExecuteChanged();
                 },
                 () => !string.IsNullOrEmpty(ReplaceText) && _IsTestRunning && IsRegexConditionCorrent(SearchText)
             );
@@ -637,7 +647,7 @@ namespace RegexTamer.NET.ViewModels
             var searchText = IsRegexConditionCorrent(SearchText) ? SearchText : string.Empty;
             _Messenger.Send(new SearchTextMessage(searchText));
             ButtonReplaceTestOrCancelCommand.NotifyCanExecuteChanged();
-            ButtonExecuteReplaceCommand.NotifyCanExecuteChanged();
+            ButtonReplaceCommand.NotifyCanExecuteChanged();
         }
 
         #region Culture Changed
@@ -651,15 +661,16 @@ namespace RegexTamer.NET.ViewModels
             CultureName = cultureName;
             OnPropertyChanged(nameof(MenuFile));
             OnPropertyChanged(nameof(MenuOpenFile));
-            OnPropertyChanged(nameof(MenuWriteFile));
+            OnPropertyChanged(nameof(MenuSaveFile));
             OnPropertyChanged(nameof(MenuExit));
+            OnPropertyChanged(nameof(MenuFont));
             OnPropertyChanged(nameof(LabelRegularExpression));
             OnPropertyChanged(nameof(LabelReplace));
             OnPropertyChanged(nameof(LabelRegexError));
             OnPropertyChanged(nameof(LabelTargetData));
             OnPropertyChanged(nameof(ButtonSearch));
             OnPropertyChanged(nameof(ButtonReplaceTestOrCancel));
-            OnPropertyChanged(nameof(ButtonExecuteReplace));
+            OnPropertyChanged(nameof(ButtonReplace));
             IsRegexConditionCorrent(SearchText);
         }
         #endregion Culture Changed

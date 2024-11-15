@@ -6,9 +6,6 @@ using RegexTamer.NET.ViewModels;
 
 namespace RegexTamer.NET
 {
-    /// <summary>
-    /// FontSelect.xaml の相互作用ロジック
-    /// </summary>
     public partial class FontSelect : Window
     {
         public FontSelect()

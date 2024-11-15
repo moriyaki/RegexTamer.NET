@@ -206,9 +206,6 @@ namespace RegexTamer.NET
 
             replacedContents.Clear();
         }
-        /*
-        The price of the book is $20, while the notebook costs $10.
-        */
 
         /// <summary>
         /// Restore original tartet text

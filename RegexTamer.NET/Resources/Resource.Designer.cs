@@ -61,20 +61,11 @@ namespace RegexTamer.NET.Resources {
         }
         
         /// <summary>
-        ///   Cancel Replace Test に類似しているローカライズされた文字列を検索します。
+        ///   Replace に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string Button_CancelReplaceTest {
+        internal static string Button_Replace {
             get {
-                return ResourceManager.GetString("Button_CancelReplaceTest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Execute Replace に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string Button_ExecuteReplace {
-            get {
-                return ResourceManager.GetString("Button_ExecuteReplace", resourceCulture);
+                return ResourceManager.GetString("Button_Replace", resourceCulture);
             }
         }
         
@@ -84,6 +75,15 @@ namespace RegexTamer.NET.Resources {
         internal static string Button_ReplaceTest {
             get {
                 return ResourceManager.GetString("Button_ReplaceTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Replace Test Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Button_ReplaceTestCancel {
+            get {
+                return ResourceManager.GetString("Button_ReplaceTestCancel", resourceCulture);
             }
         }
         
@@ -102,6 +102,15 @@ namespace RegexTamer.NET.Resources {
         internal static string Label_FontSample {
             get {
                 return ResourceManager.GetString("Label_FontSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fonts and Font Size Select に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_FontSelectWindow {
+            get {
+                return ResourceManager.GetString("Label_FontSelectWindow", resourceCulture);
             }
         }
         
@@ -156,6 +165,15 @@ namespace RegexTamer.NET.Resources {
         internal static string Label_TargetData {
             get {
                 return ResourceManager.GetString("Label_TargetData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   RegexTamer.NET -  に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Label_WindowTitle {
+            get {
+                return ResourceManager.GetString("Label_WindowTitle", resourceCulture);
             }
         }
         
@@ -493,11 +511,11 @@ namespace RegexTamer.NET.Resources {
         }
         
         /// <summary>
-        ///   _Write File に類似しているローカライズされた文字列を検索します。
+        ///   _Save File に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string MenuWriteFile {
+        internal static string MenuSaveFile {
             get {
-                return ResourceManager.GetString("MenuWriteFile", resourceCulture);
+                return ResourceManager.GetString("MenuSaveFile", resourceCulture);
             }
         }
     }

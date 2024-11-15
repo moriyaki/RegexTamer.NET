@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegexTamer.NET"
         mc:Ignorable="d"
-        Title="RegexTamer.NET" 
+        Title="{Binding LabelWindowTitle}" 
         Width="{Binding WindowWidth,Mode=TwoWay}" Height="{Binding WindowHeight,Mode=TwoWay}" 
         Left="{Binding WindowLeft,Mode=TwoWay}" Top="{Binding WindowTop,Mode=TwoWay}">
     <Grid PreviewMouseWheel="OnMouseWheel">
@@ -30,7 +30,7 @@
         <Menu x:Name="FolderMenu" DockPanel.Dock="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
             <MenuItem Header="{Binding MenuFile}">
                 <MenuItem Header="{Binding MenuOpenFile}" Command="{Binding OpenFile}"/>
-                <MenuItem Header="{Binding MenuWriteFile}" Command="{Binding WriteFile}"/>
+                <MenuItem Header="{Binding MenuSaveFile}" Command="{Binding SaveFile}"/>
                 <Separator />
                 <MenuItem Header="{Binding MenuExit}" Command="{Binding CloseApplication}"/>
             </MenuItem>
@@ -59,7 +59,7 @@
         <Button Grid.Row="2" Grid.Column="2" Margin="3" Content="{Binding ButtonReplaceTestOrCancel}" Command="{Binding ButtonReplaceTestOrCancelCommand}"
                 FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
         <!-- "Replace" -->
-        <Button Grid.Row="2" Grid.Column="3" Margin="3" Content="{Binding ButtonExecuteReplace}" Command="{Binding ButtonExecuteReplaceCommand}"
+        <Button Grid.Row="2" Grid.Column="3" Margin="3" Content="{Binding ButtonReplace}" Command="{Binding ButtonReplaceCommand}"
                 FontFamily="{Binding CurrentFontFamily}" FontSize="{Binding FontSize}"/>
 
         <!-- "Regular Expression Error" -->

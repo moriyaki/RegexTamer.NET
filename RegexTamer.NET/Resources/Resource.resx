@@ -255,8 +255,8 @@
   <data name="MenuOpenFile" xml:space="preserve">
     <value>_Open File</value>
   </data>
-  <data name="MenuWriteFile" xml:space="preserve">
-    <value>_Write File</value>
+  <data name="MenuSaveFile" xml:space="preserve">
+    <value>_Save File</value>
   </data>
   <data name="MenuExit" xml:space="preserve">
     <value>E_xit</value>
@@ -273,11 +273,11 @@
   <data name="Button_ReplaceTest" xml:space="preserve">
     <value>Replace Test</value>
   </data>
-  <data name="Button_ExecuteReplace" xml:space="preserve">
-    <value>Execute Replace</value>
+  <data name="Button_Replace" xml:space="preserve">
+    <value>Replace</value>
   </data>
-  <data name="Button_CancelReplaceTest" xml:space="preserve">
-    <value>Cancel Replace Test</value>
+  <data name="Button_ReplaceTestCancel" xml:space="preserve">
+    <value>Replace Test Cancel</value>
   </data>
   <data name="LabelRegexError_Empty" xml:space="preserve">
     <value>Regular Expression search criteria not entered</value>
@@ -297,5 +297,11 @@
   </data>
   <data name="Label_FontAccept" xml:space="preserve">
     <value>Font change accept</value>
+  </data>
+  <data name="Label_FontSelectWindow" xml:space="preserve">
+    <value>Fonts and Font Size Select</value>
+  </data>
+  <data name="Label_WindowTitle" xml:space="preserve">
+    <value>RegexTamer.NET - </value>
   </data>
 </root>

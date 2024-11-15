@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RegexTamer.NET
 {
-    #region リソースサービス
+    #region Resource Service
 
     public class ResourceService : ObservableObject
     {
@@ -32,5 +32,5 @@ namespace RegexTamer.NET
         }
     }
 
-    #endregion リソースサービス
+    #endregion Resource Service
 }
